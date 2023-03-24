@@ -8,12 +8,12 @@ public class DynamicLoading {
         Object obj = c.newInstance(); // Create an instance of the loaded class
 
         DemoClass myObj = (DemoClass) obj; // Cast the object
-        myObj.sayHello();
+        myObj.printName();
     }
 }
 
 class DemoClass {
-    public void sayHello() {
-        System.out.println("Hello, World!");
+    public void printName() {
+        System.out.println("Abhishek Mehta");
     }
 }
