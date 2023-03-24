@@ -1,4 +1,4 @@
-// 3.Write a java program to implement multilevel inheritance with 4 levels of hierarchy.
+// 1.3 Write a java program to implement multilevel inheritance with 4 levels of hierarchy.
 
 class ClassA {
     public void methodA() {

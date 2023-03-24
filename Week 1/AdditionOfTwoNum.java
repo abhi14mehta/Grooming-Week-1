@@ -1,4 +1,4 @@
-// 1.Write a program to accept two numbers as command line arguments and print the addition of those numbers.
+// 1.1 Write a program to accept two numbers as command line arguments and print the addition of those numbers.
 
 public class AdditionOfTwoNum {
     public static void main(String args[])   

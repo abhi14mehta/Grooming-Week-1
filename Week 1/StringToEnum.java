@@ -1,4 +1,4 @@
-// 5.Write a program to convert String to enum.
+// 1.5 Write a program to convert String to enum.
 
 public class StringToEnum {
     enum Names {ANKIT,RAVI,PRAKASH,AVINASH,ARNAB,ABHISHEK};

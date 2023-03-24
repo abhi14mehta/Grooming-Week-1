@@ -1,4 +1,4 @@
-// 4.Write a single program to implement inheritance and polymorphism in java.
+// 1.4 Write a single program to implement inheritance and polymorphism in java.
 
 class Shapes {
     public void area(){

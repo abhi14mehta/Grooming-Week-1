@@ -1,7 +1,6 @@
-import java.time.chrono.MinguoChronology;
 import java.util.Arrays;
 
-// 6.Find the Kth largest and Kth smallest number in an array.
+// 1.6 Find the Kth largest and Kth smallest number in an array.
 
 
 

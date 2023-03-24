@@ -1,4 +1,4 @@
-// 2.Write a java program to implement visibility controls such as public, private, protected access modes. Assume suitable data, if any.
+// 1.2 Write a java program to implement visibility controls such as public, private, protected access modes. Assume suitable data, if any.
 
 public class AccessSpecifiers {
     public int a = 10;
