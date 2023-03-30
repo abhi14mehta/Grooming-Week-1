@@ -2,11 +2,19 @@ import java.util.Scanner;
 
 // 2.6 find the maximum occurring character in a given String and try to use exception handling for edge cases?
 
+class EmptyStringException extends Exception{
+    EmptyStringException(String msg){
+        super(msg);
+    }
+}
+
 public class MaxOccuringCharacter {
     public static void main(String[] args) {
-        try{
-            Scanner sc = new Scanner(System.in);
+        try (Scanner sc = new Scanner(System.in)) {
             String str = sc.nextLine();
+            if(str == null || str.equals(""))  {
+                throw new EmptyStringException("String is empty enter a valid string");
+            }
             str = str.toLowerCase();
             int[] arr = new int[26];
 
@@ -22,11 +30,12 @@ public class MaxOccuringCharacter {
                     maxOccurIndex = i;
                 }
             }
-            char maxChar = (char)('a'+maxOccurIndex);
+            char maxChar = (char)('a'+ maxOccurIndex);
 
             System.out.println("Max occuring character is " + maxChar + " and have occuredd " + arr[maxOccurIndex] + " times");
-        }catch(ArrayIndexOutOfBoundsException e){
-            System.out.println("Exception caught " + e.getMessage());
+        }catch(EmptyStringException e){
+            System.out.println(e.getMessage());
         }
     }    
 }
+

@@ -5,10 +5,12 @@ public class StaticKeyword {
     int var2 = 10;
 
     static void staticMethod() { 
+        //System.out.println(var2); error
         System.out.println("Inside static method !!");
     }
 
     void instanceMethod() {
+        System.out.println(var1);
         System.out.println("Inside instance method !!");
     }
 
