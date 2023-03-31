@@ -1,11 +1,24 @@
-// 1.5 Write a program to convert String to enum.
 
-public class StringToEnum {
-    enum Names {ANKIT,RAVI,PRAKASH,AVINASH,ARNAB,ABHISHEK};
-    public static void main(String[] args) {
-        String string = "ABHISHEK";
-        // valueOf matches to enum created if doesnt matches then create error
-        Names name = Names.valueOf(string);
-        System.out.println("Name: " + name);
+
+
+public class StringToEnum
+{
+    public static void main(String[] args)
+    {
+        try
+        {
+            System.out.printf("1");
+            int data = 5 / 0;
+        }
+        catch(ArithmeticException e)
+        {
+            System.out.printf("2");
+            System.exit(0);
+        }
+        finally
+        {
+            System.out.printf("3");
+        }
+        System.out.printf("4");
     }
 }
