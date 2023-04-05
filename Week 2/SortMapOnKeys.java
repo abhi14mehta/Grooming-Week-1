@@ -2,6 +2,7 @@
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +21,7 @@ public class SortMapOnKeys {
 
         Collections.sort(list,(a,b) -> a.getKey().compareTo(b.getKey()));
 
-        Map<Integer,String> demo = new HashMap<>();
+        Map<Integer,String> demo = new LinkedHashMap<>();
         
         for(Map.Entry<Integer,String> val : list){
             demo.put(val.getKey(),val.getValue());

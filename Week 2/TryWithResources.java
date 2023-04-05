@@ -5,6 +5,7 @@ import java.io.IOException;
 
 public class TryWithResources {
     public static void main(String[] args) {
+		// If not in try with resource need to close these streams in finally block !
         try(FileInputStream fin = new FileInputStream("Notes.txt");
 			FileOutputStream fout = new FileOutputStream("CopyFile.txt");){
 			int x;
