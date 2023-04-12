@@ -1,18 +1,24 @@
 // 2.How will you create a task & execute it.
 
-import java.util.concurrent.Callable;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
-public class CreateTaskAndExecute implements Callable<Integer> {
-    public static void main(String[] args) throws Exception {
-        CreateTaskAndExecute createAndExecuteTask = new CreateTaskAndExecute();
-        int value = createAndExecuteTask.call();
-        System.out.println(value);
+class Task extends TimerTask {
+    public void run() {
+        System.out.println("Task is running");
     }
-
-    @Override
-    public Integer call() throws Exception {
-        System.out.println("Task Running");
-        return 1;
+}
+public class CreateTaskAndExecute {
+    public static void main(String[] args) {
+        // creating timer having method schedule(task,time)
+        Timer timer = new Timer();
+        // creating timer task that needs to execute
+        TimerTask task = new Task(); 
+        // scheduling the task by passing current date so that it executes instantly
+        timer.schedule(task, new Date()); 
     }
-
+    public void run() {
+        System.out.println("Performing the given task");
+    }
 }

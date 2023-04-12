@@ -24,7 +24,7 @@ class EvenThread extends Thread{
 }
 class OddThread extends Thread{
 	OddThread(){
-		start();
+		run();
 		setName("Odd Thread");
 	}
     @Override
@@ -44,9 +44,10 @@ class OddThread extends Thread{
 }
 public class ThreadDemo{
 	public static void main(String[] args) {
-		EvenThread e = new EvenThread("Even Thread",6);
+		EvenThread e = new EvenThread("Even Thread",9);
 		OddThread o = new OddThread();
 		e.start();
+        e.interrupt();
 		Thread t = Thread.currentThread();
 		System.out.println("Main Thread:"+t);
 
