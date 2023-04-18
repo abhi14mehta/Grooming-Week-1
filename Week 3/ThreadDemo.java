@@ -24,7 +24,7 @@ class EvenThread extends Thread{
 }
 class OddThread extends Thread{
 	OddThread(){
-		run();
+		start();
 		setName("Odd Thread");
 	}
     @Override

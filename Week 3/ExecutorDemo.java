@@ -28,39 +28,39 @@ class Task implements Runnable {
 
 public class ExecutorDemo {
     public static void main(String[] args) {
-        //ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor();
-        // singleThreadExecutor.execute(new Task("SingleThreadExecutor task 1"));
-        // singleThreadExecutor.execute(new Task("SingleThreadExecutor task 2"));
-        // singleThreadExecutor.shutdown();
+        ExecutorService singleThreadExecutor = Executors.newSingleThreadExecutor();
+        singleThreadExecutor.execute(new Task("SingleThreadExecutor 1"));
+        singleThreadExecutor.execute(new Task("SingleThreadExecutor 2"));
+        singleThreadExecutor.shutdown();
 
 
         // ExecutorService fixedThreadPool = Executors.newFixedThreadPool(2);
-        // fixedThreadPool.execute(new Task("FixedThreadPool Task 1"));
-        // fixedThreadPool.execute(new Task("FixedThreadPool Task 2"));
-        // fixedThreadPool.execute(new Task("FixedThreadPool Task 3"));
+        // fixedThreadPool.execute(new Task("FixedThreadPool 1"));
+        // fixedThreadPool.execute(new Task("FixedThreadPool 2"));
+        // fixedThreadPool.execute(new Task("FixedThreadPool 3"));
         // fixedThreadPool.shutdown();
 
 
         // ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
-        // cachedThreadPool.execute(new Task("CachedThreadPool Task 1"));
-        // cachedThreadPool.execute(new Task("CachedThreadPool Task 2"));
-        // cachedThreadPool.execute(new Task("CachedThreadPool Task 3"));
+        // cachedThreadPool.execute(new Task("CachedThreadPool 1"));
+        // cachedThreadPool.execute(new Task("CachedThreadPool 2"));
+        // cachedThreadPool.execute(new Task("CachedThreadPool 3"));
         // cachedThreadPool.shutdown();
 
 
-        ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(2);
-        ScheduledFuture<?> scheduledFuture = scheduledThreadPool.schedule(new Task("ScheduledThreadPool Task 1"), 5, TimeUnit.SECONDS);
-        scheduledThreadPool.schedule(new Task("ScheduledThreadPool Task 2"), 3, TimeUnit.SECONDS);
+        // ScheduledExecutorService scheduledThreadPool = Executors.newScheduledThreadPool(2);
+        // ScheduledFuture<?> scheduledFuture = scheduledThreadPool.schedule(new Task("ScheduledThreadPool 1"), 5, TimeUnit.SECONDS);
+        // scheduledThreadPool.schedule(new Task("ScheduledThreadPool 2"), 3, TimeUnit.SECONDS);
 
-        scheduledThreadPool.scheduleAtFixedRate(new Task("FixedScheduledThreadPool Task 3"), 1, 1, TimeUnit.SECONDS);
-        scheduledThreadPool.scheduleAtFixedRate(new Task("FixedScheduledThreadPool Task 4"), 2, 2, TimeUnit.SECONDS);
+        // scheduledThreadPool.scheduleAtFixedRate(new Task("FixedScheduledThreadPool 3"), 1, 1, TimeUnit.SECONDS);
+        // scheduledThreadPool.scheduleAtFixedRate(new Task("FixedScheduledThreadPool 4"), 2, 2, TimeUnit.SECONDS);
 
-        try {
-            scheduledFuture.get();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-        scheduledThreadPool.shutdown();
+        // try {
+        //     scheduledFuture.get();
+        // }
+        // catch (Exception e) {
+        //     e.printStackTrace();
+        // }
+        // scheduledThreadPool.shutdown();
     }
 }
