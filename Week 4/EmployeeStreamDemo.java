@@ -5,13 +5,6 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-// 3. Given a list of Employee objects, sort the list based on employee salary? 
-// Assume Employee class having id, name, salary fields.
-// 4. Given a list of Employee objects, group the list based on employee salary?
-// 6. How to check if list is empty in Java 8 using Optional, if not null iterate through the list and print the object?
-
-
-
 class Employee{
 	int id;
 	String name;
@@ -52,11 +45,11 @@ public class EmployeeStreamDemo {
 		emplist.add(new Employee(9, "Mahesh", 1078));
 		emplist.add(new Employee(10, "Nitin", 1034));
 
-        // 3
+        // 3. Given a list of Employee objects, sort the list based on employee salary? 
         emplist.sort(Comparator.comparingInt(Employee::getSalary));
         System.out.println(emplist);
 
-        // 4
+        // 4. Given a list of Employee objects, group the list based on employee salary?
         Map<Integer, List<Employee>> groupEmps = emplist.stream().collect(Collectors.groupingBy(Employee::getSalary));
 
         groupEmps.forEach((salary, list) -> {
@@ -64,8 +57,10 @@ public class EmployeeStreamDemo {
             list.forEach(emp -> System.out.println("\tID: " + emp.getId() + " Name: " + emp.getName()));
         });
 
-        // 6
+        // 6. How to check if list is empty in Java 8 using Optional, if not null iterate through the list and print the objectx
+        //List<Employee> ee = new ArrayList<>();
         Optional<List<Employee>> optionalEmployees = Optional.ofNullable(emplist);
+        System.out.println(optionalEmployees);
         optionalEmployees.ifPresent(list -> {
             list.forEach(emp -> System.out.println("ID: " + emp.getId() + " Name: " + emp.getName() + ", Salary: " + emp.getSalary()));
         });

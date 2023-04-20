@@ -24,29 +24,33 @@ public class StreamsDemoUsingTraderTransaction {
         );
 
         // 1. Find all transactions in the year 2011 and sort them by value (small to high).
-        transactions.sort(Comparator.comparingInt(Transaction::getValue));
-        System.out.println(transactions.stream().filter(x -> (x.getYear() == 2011)).collect(Collectors.toList())); 
+        System.out.println(transactions.stream().filter(x -> (x.getYear() == 2011)).sorted(Comparator.comparingInt(Transaction::getValue)).collect(Collectors.toList())); 
 
         // 2. What are all the unique cities where the traders work
         Set<String> set = transactions.stream().map(x -> x.getTrader().getCity()).collect(Collectors.toSet());
         System.out.println(set);
         
-        // incomplete
-        Set<String> tradersname = transactions.stream().filter(x -> (x.getTrader().getCity()=="Cambridge")).map(x -> x.getTrader().getName()).sorted(Comparator.naturalOrder()).collect(Collectors.toSet());
+        // 3. Find all traders from Cambridge and sort them by name.
+        List<String> tradersname = transactions.stream().filter(x -> (x.getTrader().getCity()=="Cambridge")).map(x -> x.getTrader().getName()).distinct().sorted().collect(Collectors.toList());
         System.out.println(tradersname);
 
-        /*
+        // 4. Return a string of all traders’ names sorted alphabetically.
+        List<String> allTraders = transactions.stream().map(x -> x.getTrader().getName()).distinct().sorted().collect(Collectors.toList());
+        System.out.println(allTraders);
 
-        
-        
-        3. Find all traders from Cambridge and sort them by name.
-        4. Return a string of all traders’ names sorted alphabetically.
-        5. Are any traders based in Milan?
-        6. Print all transactions’ values from the traders living in Cambridge.
-        7. What’s the highest value of all the transactions?
-        8. Find the transaction with the smallest value
+        // 5. Are any traders based in Milan?
+        List<String> milenTrader = transactions.stream().filter(x -> (x.getTrader().getCity()=="Milan")).map(x -> x.getTrader().getName()).distinct().sorted().collect(Collectors.toList());
+        System.out.println(milenTrader);
 
-        */
+        // 6. Print all transactions’ values from the traders living in Cambridge.
+        List<Integer> valueTradersCambridge = transactions.stream().filter(x -> (x.getTrader().getCity()=="Cambridge")).map(x -> x.getValue()).sorted().collect(Collectors.toList());
+        System.out.println(valueTradersCambridge);
+
+        // 7. What’s the highest value of all the transactions?
+        System.out.println(transactions.stream().map(x -> x.getValue()).max(Comparator.naturalOrder()).get());
+
+        // 8. Find the transaction with the smallest value
+        System.out.println(transactions.stream().map(x -> x.getValue()).min(Comparator.naturalOrder()).get());
 
     }
 }
