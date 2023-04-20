@@ -3,6 +3,7 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 // 1.Given a list of integers, find out all the even numbers exist in the list using Stream functions
@@ -22,12 +23,15 @@ public class JavaStreams{
     }
 
     public static List<Integer> EvenNumbers(List<Integer> list){
-        return list.stream().filter(x -> (x%2==0)).collect(Collectors.toList());
+
+        Predicate<Integer> evenPredicate = x -> (x%2==0);
+        return list.stream().filter(evenPredicate).collect(Collectors.toList());
     }
 
     public static Set<Integer> Duplicates(List<Integer> list){
         Set<Integer> set = new HashSet<>();
-        return list.stream().filter(x -> !set.add(x)).collect(Collectors.toSet());
+        Predicate<Integer> duplicatePredicate = x -> !set.add(x);
+        return list.stream().filter(duplicatePredicate).collect(Collectors.toSet());
     }
 
     public static Integer MaximumValue(List<Integer> list){

@@ -46,8 +46,11 @@ public class EmployeeStreamDemo {
 		emplist.add(new Employee(10, "Nitin", 1034));
 
         // 3. Given a list of Employee objects, sort the list based on employee salary? 
-        emplist.sort(Comparator.comparingInt(Employee::getSalary));
-        System.out.println(emplist);
+        // emplist.sort(Comparator.comparingInt(Employee::getSalary));
+        // System.out.println(emplist);
+        //Custom
+        Comparator<Employee> sortEmployeeBasedSalary = (a,b) -> (a.getSalary() - b.getSalary());
+        emplist.stream().sorted(sortEmployeeBasedSalary).collect(Collectors.toList()).forEach(emp -> System.out.println("ID: " + emp.getId() + " Name: " + emp.getName() + ", Salary: " + emp.getSalary()));
 
         // 4. Given a list of Employee objects, group the list based on employee salary?
         Map<Integer, List<Employee>> groupEmps = emplist.stream().collect(Collectors.groupingBy(Employee::getSalary));
