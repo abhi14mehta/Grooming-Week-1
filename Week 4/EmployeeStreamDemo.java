@@ -50,7 +50,7 @@ public class EmployeeStreamDemo {
         // System.out.println(emplist);
         //Custom
         Comparator<Employee> sortEmployeeBasedSalary = (a,b) -> (a.getSalary() - b.getSalary());
-        emplist.stream().sorted(sortEmployeeBasedSalary).collect(Collectors.toList()).forEach(emp -> System.out.println("ID: " + emp.getId() + " Name: " + emp.getName() + ", Salary: " + emp.getSalary()));
+        emplist.stream().sorted(Comparator.comparingInt(Employee::getSalary).reversed()).collect(Collectors.toList()).forEach(emp -> System.out.println("ID: " + emp.getId() + " Name: " + emp.getName() + ", Salary: " + emp.getSalary()));
 
         // 4. Given a list of Employee objects, group the list based on employee salary?
         Map<Integer, List<Employee>> groupEmps = emplist.stream().collect(Collectors.groupingBy(Employee::getSalary));
@@ -62,6 +62,7 @@ public class EmployeeStreamDemo {
 
         // 6. How to check if list is empty in Java 8 using Optional, if not null iterate through the list and print the objectx
         //List<Employee> ee = new ArrayList<>();
+        // use orElse, orElseThrow
         Optional<List<Employee>> optionalEmployees = Optional.ofNullable(emplist);
         System.out.println(optionalEmployees);
         optionalEmployees.ifPresent(list -> {

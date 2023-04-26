@@ -14,27 +14,27 @@ import java.util.stream.Collectors;
 public class JavaStreams{
     public static void main(String[] args) {
         List<Integer> list = Arrays.asList(10,15,8,49,25,98,98,32,15);
-        System.out.println("Even Numbers: " + EvenNumbers(list));
+        System.out.println("Even Numbers: " + evenNumbers(list));
 
         list = Arrays.asList(2,2,10,10,15,8,49,40,25,98,98,32,15,15);
-        System.out.println("Duplicate Elements: "+Duplicates(list));
+        System.out.println("Duplicate Elements: "+duplicates(list));
 
-        System.out.println("Maximum Value: "+MaximumValue(list));
+        System.out.println("Maximum Value: "+maximumValue(list));
     }
 
-    public static List<Integer> EvenNumbers(List<Integer> list){
+    public static List<Integer> evenNumbers(List<Integer> list){
 
         Predicate<Integer> evenPredicate = x -> (x%2==0);
         return list.stream().filter(evenPredicate).collect(Collectors.toList());
     }
 
-    public static Set<Integer> Duplicates(List<Integer> list){
+    public static Set<Integer> duplicates(List<Integer> list){
         Set<Integer> set = new HashSet<>();
         Predicate<Integer> duplicatePredicate = x -> !set.add(x);
         return list.stream().filter(duplicatePredicate).collect(Collectors.toSet());
     }
 
-    public static Integer MaximumValue(List<Integer> list){
+    public static Integer maximumValue(List<Integer> list){
         return list.stream().max(Comparator.naturalOrder()).get();
     }
 }

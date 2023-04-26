@@ -15,7 +15,8 @@ class EvenThread extends Thread{
 		for(i=0; i<10 ;i+=2){
 			System.out.println("Even : "+i);
 			try{
-				Thread.sleep(250);
+				// seconds increased for jvisual vm purpose
+				Thread.sleep(25000);
 			}catch(InterruptedException e){
 				System.out.println("InterruptedException caught:"+ e.getMessage());
 			}
@@ -34,7 +35,7 @@ class OddThread extends Thread{
 		for(i=1; i<10 ;i+=2){
 			System.out.println("Odd : "+i);
 			try{
-				Thread.sleep(500);
+				Thread.sleep(50000);
                 this.interrupt();
 			}catch(InterruptedException e){
 				System.out.println("InterruptedException caught:"+ e.getMessage());

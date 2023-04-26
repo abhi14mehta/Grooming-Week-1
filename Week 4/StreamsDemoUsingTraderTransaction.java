@@ -58,7 +58,10 @@ class CityPredicate implements Predicate<Transaction> {
     }
 }
 
+// Predicate<Transaction> cityPredicateCambridge = x -> x.getTrader().getCity().equals("Cambrige");
+
 class PrintName implements Consumer<String> {
+    @Override
     public void accept(String name) {
         System.out.println(name);
     }
