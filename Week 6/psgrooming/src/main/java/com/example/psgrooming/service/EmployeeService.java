@@ -11,7 +11,7 @@ public interface EmployeeService {
     List<Employee> getAllEmployees();
     Employee getEmployeeById(int id) throws Exception;
 
-    void createEmployee(Employee emp);
+    Employee createEmployee(Employee emp);
     Employee updateEmployeeById(int id,Employee emp) throws Exception;
     void deleteEmployeeById(int id) throws Exception;
 }

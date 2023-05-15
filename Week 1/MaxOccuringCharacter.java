@@ -15,12 +15,10 @@ public class MaxOccuringCharacter {
             if(str == null || str.equals(""))  {
                 throw new EmptyStringException("String is empty enter a valid string");
             }
-            str = str.toLowerCase();
-            int[] arr = new int[26];
+            int[] arr = new int[256];
 
             for(int i=0;i<str.length();i++){
-                int val = str.charAt(i) - 'a';
-                arr[val] += 1;
+                arr[str.charAt(i)]++;
             }
             int maxOccurIndex = 0;
             int value = Integer.MIN_VALUE;
@@ -29,10 +27,9 @@ public class MaxOccuringCharacter {
                     value = arr[i];
                     maxOccurIndex = i;
                 }
-            }
-            char maxChar = (char)('a'+ maxOccurIndex);
+            }            
 
-            System.out.println("Max occuring character is " + maxChar + " and have occuredd " + arr[maxOccurIndex] + " times");
+            System.out.println("Max occuring character is " + (char)maxOccurIndex + " and have occuredd " + arr[maxOccurIndex] + " times");
         }catch(EmptyStringException e){
             System.out.println(e.getMessage());
         }
